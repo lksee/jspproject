@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -46,7 +47,7 @@
             %>
                 <tr>
                     <td><%=rs.getInt("id")%></td>
-                    <td><%= rs.getString("title")%></td>
+                    <td><a href="view.jsp?id=<%= rs.getInt("id") %>"><%= rs.getString("title") %></a></td>
                     <td><%= rs.getString("author")%></td>
                     <td><%= rs.getString("created_at")%></td>
                 </tr>

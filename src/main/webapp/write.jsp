@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%
+    String username = (String) session.getAttribute("username");
+    if(username == null) {
+        response.sendRedirect("login.jsp");
+    }
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -21,10 +26,7 @@
                 <label for="title" class="form-label">제목</label>
                 <input type="text" id="title" name="title" class="form-control" required>
             </div>
-            <div class="input-group mb-3">
-                <label for="author" class="form-label">작성자</label>
-                <input type="text" id="author" name="author" class="form-control" required>
-            </div>
+            <input type="hidden" name="author" value='<%=username%>'>
             <div class="input-group mb-3">
                 <lable for="content" class="form-label">내용</lable>
                 <textarea id="content" name="content" rows="5" class="form-control" required></textarea>

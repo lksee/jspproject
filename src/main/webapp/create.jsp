@@ -2,6 +2,19 @@
 <%@ page import="java.sql.*" %>
 
 <%
+    if (request.getParameter("author") == null || request.getParameter("author").equals("")) {
+        response.sendRedirect("index.jsp");
+        return;
+    } else {
+        String requestValue = (String) request.getParameter("author");
+        String sessionValue = (String) session.getAttribute("username");
+
+        if(!requestValue.equals(sessionValue)) {
+            response.sendRedirect("index.jsp");
+            return;
+        }
+    }
+
     String sql = "insert into board (title, content, author) values (?, ?, ?)";
     Connection conn = (Connection) request.getServletContext().getAttribute("conn");
     try (PreparedStatement stmt = conn.prepareStatement(sql)) {
