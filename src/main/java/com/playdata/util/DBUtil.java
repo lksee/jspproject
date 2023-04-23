@@ -12,9 +12,6 @@ public class DBUtil {
         String user = context.getInitParameter("DB_USER");
         String password = context.getInitParameter("DB_PASSWORD");
 
-        System.out.println("url = " + url);
-        System.out.println("user = " + user);
-        System.out.println("password = " + password);
         // JDBC Driver 로딩
         try {
             Class.forName("org.mariadb.jdbc.Driver");

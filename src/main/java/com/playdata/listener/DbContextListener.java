@@ -4,9 +4,11 @@ import com.playdata.util.DBUtil;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+@WebListener
 public class DbContextListener implements ServletContextListener {
 
     @Override

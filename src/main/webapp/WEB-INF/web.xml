@@ -21,7 +21,6 @@
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
   version="4.0"
   metadata-complete="false">
-
   <context-param>
     <param-name>DB_URL</param-name>
     <param-value>jdbc:mariadb://localhost:3306/board</param-value>
@@ -35,11 +34,9 @@
     <param-value>playdata</param-value>
   </context-param>
 
+
   <display-name>Welcome to Tomcat</display-name>
   <description>
      Welcome to Tomcat
   </description>
-  <listener>
-    <listener-class>com.playdata.listener.DbContextListener</listener-class>
-  </listener>
 </web-app>

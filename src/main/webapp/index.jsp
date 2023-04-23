@@ -15,6 +15,19 @@
 <body>
     <div class="container">
         <h2>게시판</h2>
+        <%-- 세션에 username이 있으면 로그인 상태로 간주 --%>
+        <%
+            String username = (String) session.getAttribute("username");
+            if (username != null) {
+        %>
+        <p><%= username %>님, 환영합니다.</p>
+        <p><a href="logout">로그아웃</a></p>
+
+        <%-- 세션에 username이 없으면 로그인되지 않은 상태 --%>
+        <% } else { %>
+        <p><a href="login.jsp">로그인</a></p>
+        <p><a href="register.jsp">회원가입</a></p>
+        <% } %>
         <table class="table">
             <thead>
                 <tr>
@@ -45,9 +58,15 @@
             %>
             </tbody>
         </table>
+        <%
+            if (username != null) {
+        %>
         <div>
             <a href="write.jsp" class="btn btn-primary">글쓰기</a>
         </div>
+        <%
+            }
+        %>
     </div>
 </body>
 </html>
